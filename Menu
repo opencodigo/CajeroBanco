@@ -4,7 +4,10 @@ public class Program
 {
 	public static void Main()
 	{
-		
+		Cajero CajeroMenu = new Cajero();
+		CajeroMenu.setingresar();
+		CajeroMenu.setmenu();
+		CajeroMenu.setusarmenu();
 	}
 	
 }
@@ -12,8 +15,8 @@ public class Cajero
 	{
 		string Nombre;
 		int DNI;
-		int x;
-		bool ;
+		int opciones;
+		
 		public void setingresar()
 		{
 			Console.WriteLine("Ingrese su nombre");
@@ -30,27 +33,35 @@ public class Cajero
             Console.WriteLine("2. Depositar");
 			Console.WriteLine("3. Retirar");
 			Console.WriteLine("4. Terminar");
+			
+			Console.WriteLine("Escoja una opcion");
+			opciones = int.Parse(Console.ReadLine());
 		}
-		public void setUsarMenu()
+		public void setusarmenu()
 		{
 			do
 			{
-				if(x == 1)
+				if(opciones == 1)
 				{
 					Console.WriteLine("Su saldo es de...");
+					break;
 				}
-				if(x==2)
+				if(opciones ==2)
 				{
 					Console.WriteLine("A quien quiere depositar");
+					break;
 				}
-				if(x==3)
+				if(opciones ==3)
 				{
 					Console.WriteLine("Cuanto dinero quiere retirar?");
+					break;
 				}
-				if(x==4)
+				if(opciones ==4)
 				{
 					Console.WriteLine("Terminar programa");
+					
+					
 				}	
-			}while();
+			}while(opciones != 4);
 		}
 	}
