@@ -1,0 +1,234 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace week5day3Cajero1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Cliente cliente = new Cliente();
+            cliente.LeerClientes();
+
+
+            /*Cajero cajero = new Cajero();
+
+            cajero.Login();*/
+
+            Console.ReadKey();
+        }
+    }
+}
+
+class Cliente
+{
+    public string Dni;
+    public string Nombre;
+    public string Apellido;
+    public string password;
+    public int edad;
+    public Cliente()
+    {
+
+    }
+    public void LeerClientes()
+    {
+        string[] Cuentas;
+        string text = System.IO.File.ReadAllText(@"C:\ruta\bd.txt");
+        System.Console.WriteLine("Contenido del archivo = {0}", text);
+        Console.WriteLine("Presione cualquier tecla para salir.");
+
+       // string cuenta = "84745328,CARLOS ENRIQUE,ROBLES,275-8143201,52855.00,S";
+        string[] separadas;
+        separadas = text.Split(',');
+        List<string> lista_de_objetos = new List<string>();
+        //List<List> lista_General = new List<string>();
+
+        int Longitud = separadas.Length;
+        for (int i = 0; i < Longitud; i++)
+        {
+            string muestra = separadas[i];
+            lista_de_objetos.Add(muestra);
+        }
+
+        //mostrando elementos en la lista
+        //----------------------------------------------//
+
+        foreach (string element in lista_de_objetos)
+        {
+
+            Console.Write(element);
+        }
+
+
+
+
+    }
+    public void InsertarDatos()
+    {
+        int Clientes;
+        Console.WriteLine("Nro de Clientes Ingresados");
+        Clientes = int.Parse(Console.ReadLine());
+        Cliente[] client = new Cliente[Clientes];
+        for (int i = 0; i < client.Length; i++)
+        {
+            client[i] = new Cliente();
+            Console.WriteLine("Ingrese Dni:");
+            client[i].Dni = Console.ReadLine();
+            Console.WriteLine("Ingrese Nombre:");
+            client[i].Nombre = Console.ReadLine();
+            Console.WriteLine("Ingrese Apellido:");
+            client[i].Apellido = Console.ReadLine();
+        }
+        for (int j = 0; j < client.Length; j++)
+        {
+            Console.WriteLine("Dni : " + client[j].Dni + " || Nombre : " + client[j].Nombre + " || Apellido : " + client[j].Apellido);
+        }
+    }
+
+}
+    public class Cajero
+{
+    public string[] DNI = { "84745328", "27638435", "49943018", "32821092", "56000899", "70961226", "68383047", "23151942", "13371556", "65172401", "31782240", };
+    public string[] Nombre = { "CARLOS ENRIQUE", "MARGOTH", "NEIL IVAR", "LUIS ALBERTO", "KERVIN FRANK", "JORGE ALEXANDER", "EDUARDO RAMIRO", "RENZO RAUL", "EDSON ELVIS", "DIEGO ORLANDO", "MAYBOL REYNALDO" };
+    public string[] Apellido = { "ROBLES", "LOBATON", "", "", "", "", "", "", "", "", "" };
+
+    public string dni = "";
+    public string nombre = "";
+    public bool q = true;
+    public int opcion;
+    public void Login()
+    {
+        Console.WriteLine("==========================");
+        Console.WriteLine("====BANCO-BCP====");
+        Console.WriteLine("==========================");
+        Console.WriteLine("INGRESAR NOMBRE");
+        nombre = Console.ReadLine();
+        Console.WriteLine("INGRESAR DNI");
+        dni = Console.ReadLine();
+
+        while (true)
+        {
+
+            for (int i = 0; i < Nombre.Length; i++)
+            {
+                if ((dni == DNI[i]) && (dni == DNI[i]))
+                {
+                    Menu();
+                    q = false;
+                }
+            }
+            Login();
+        }
+
+    }
+    public void Validar(){
+		
+		
+	}
+
+    public void Menu()
+    {
+        Cliente cliente = new Cliente();
+        string Nombre;
+        int DNI;
+        int opcion = 0;
+
+        do
+        {
+
+            Console.WriteLine("=======================================");
+            Console.WriteLine("========Bienvenido a BANCO-BCP=========");
+            Console.WriteLine("=======================================");
+            Console.WriteLine("1. Consultar saldo");
+            Console.WriteLine("2. Depositar");
+            Console.WriteLine("3. Retirar");
+            Console.WriteLine("4. Terminar");
+            Console.Write("Ingrese una de las opciones:");
+            opcion = int.Parse(Console.ReadLine());
+
+            if (opcion == 1)
+            {
+
+                cliente.LeerClientes();
+            }
+            if (opcion == 2)
+            {
+                Console.WriteLine("A quien quiere depositar");
+                break;
+            }
+            if (opcion == 3)
+            {
+                Console.WriteLine("Cuanto dinero quiere retirar?");
+                break;
+            }
+            if (opcion == 4)
+            {
+                Console.WriteLine("Terminar programa");
+
+            }
+        } while (opcion != 4);
+
+
+        System.Console.ReadKey();
+
+    }
+}
+
+ class Cuenta
+{
+    public int idCuenta; 
+    public string nroCuenta;
+    public double saldo;
+    public string tipoCuenta;
+    public string fechaApertura;
+    public bool estado = true;
+
+    public Cuenta()
+    {
+        this.idCuenta = 0;
+        this.nroCuenta = "";
+        this.saldo = 0;
+        this.tipoCuenta = "";
+    }
+
+    public Cuenta(int idCuenta, string nroCuenta, double saldo, string tipoCuenta, string fechaApertura, bool estado)
+    {
+        this.idCuenta = idCuenta;
+        this.nroCuenta = nroCuenta;
+        this.saldo = saldo;
+        this.tipoCuenta = tipoCuenta;
+        this.fechaApertura = fechaApertura;
+        this.estado = estado;
+
+    }
+    public void LeerCuenta(string DNI)
+    {
+        
+    }
+
+    public void RetirarDinero(double montoRetirar)
+    {
+
+    }
+
+    public void DepositarDinero(double montoDepositar)
+    {
+
+    }
+
+    public void ConsultarSaldo(double consultaSaldo)
+    {
+
+
+    }
+
+
+}
+
+
+
