@@ -1,0 +1,56 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		
+	}
+	
+}
+public class Cajero
+	{
+		string Nombre;
+		int DNI;
+		int x;
+		bool ;
+		public void setingresar()
+		{
+			Console.WriteLine("Ingrese su nombre");
+			Nombre = (Console.ReadLine());
+			Console.WriteLine("ingrese su DNI");
+			DNI = int.Parse(Console.ReadLine());
+		}
+		public void setmenu()
+		{	
+			Console.WriteLine("==========================");
+			Console.WriteLine("========Banco BCP=========");
+			Console.WriteLine("==========================");
+			Console.WriteLine("1. Consultar saldo");
+            Console.WriteLine("2. Depositar");
+			Console.WriteLine("3. Retirar");
+			Console.WriteLine("4. Terminar");
+		}
+		public void setUsarMenu()
+		{
+			do
+			{
+				if(x == 1)
+				{
+					Console.WriteLine("Su saldo es de...");
+				}
+				if(x==2)
+				{
+					Console.WriteLine("A quien quiere depositar");
+				}
+				if(x==3)
+				{
+					Console.WriteLine("Cuanto dinero quiere retirar?");
+				}
+				if(x==4)
+				{
+					Console.WriteLine("Terminar programa");
+				}	
+			}while();
+		}
+	}
