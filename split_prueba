@@ -1,0 +1,27 @@
+//___________________TOMANDO CADENA Y MANDARLA A LISTA_________________________//
+		double saldo_actual=4000;
+		double monto_a_retirar = 2000;  
+		string  cuenta = "84745328,CARLOS ENRIQUE,ROBLES,275-8143201,52855.00,S";
+		string [] separadas;
+		separadas=cuenta.Split(',');
+		List<string> lista_de_objetos = new List<string>();
+		//List<List> lista_General = new List<string>();
+		
+		
+		int Longitud = separadas.Length;
+		for(int i = 0; i<Longitud;i++)
+		{
+			string muestra = separadas[i];
+			lista_de_objetos.Add(muestra);
+		}
+		
+		//mostrando elementos en la lista
+		//----------------------------------------------//
+		
+		foreach (string element in lista_de_objetos)
+			{
+				
+				Console.WriteLine(element);
+			}
+    
+		
