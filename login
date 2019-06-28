@@ -7,6 +7,7 @@ public class Program
 		Cajero Cajero_Login= new Cajero();
 		Cajero_Login.Logion();
 		Cajero_Login.Validar();
+		Cajero_Login.Menu();
 		
 	}
 }
@@ -38,14 +39,14 @@ class Cajero{
 	public void Validar(){
 		
 		while(q==true){
-		
+			
 			for(int i=0;i<Nombre.Length; i++){
 			if((dni==DNI[i]) && (dni==DNI[i])){
-				Console.WriteLine("registrado");
-				
+				Menu();				
 				q=false;
 				}
 			}
+			Logion();
 		}
 	}
 	public void Menu(){
@@ -87,5 +88,4 @@ class Cajero{
 		
 	}
 	}
-	
 	
