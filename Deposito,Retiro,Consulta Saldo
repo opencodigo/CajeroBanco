@@ -1,0 +1,76 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Cuenta[] cts = new Cuenta[5];
+		cts[0] = new Cuenta(100,"S");
+		cts[1] = new Cuenta(300,"D");
+		Console.WriteLine("Cliente 01 : "+"|| Saldo: "+ cts[0].saldo + "|| Tipo Moneda: "+cts[0].TipoSaldo);
+		Console.WriteLine("******************************************************************************");
+		Console.WriteLine("Cliente 02 : "+"|| Saldo: "+ cts[1].saldo + "|| Tipo Moneda: "+cts[1].TipoSaldo);
+		Console.WriteLine("******************************************************************************");
+		//cts[0].RetirarDinero();
+		/*if(cts[0].saldo <= 0){
+			Console.WriteLine("Usted No dispone de SALDO");
+		}*/
+		
+		// DEPOSITOS DE SALDO USUARIO01 A USUARIO02 RESTO AL USUARIO 01 SU SALDO;
+		cts[0].DepositarDinero();
+		Console.WriteLine(cts[0].saldo);
+		cts[0].ConsultarSaldo();
+		/*for(int i=0; i<cts.Length; i++)
+		{//Console.WriteLine("Usuarios: "+cts[i].saldo +" - "+ cts[i].TipoSaldo);
+			
+		}*/
+	}
+}
+public class Cuenta
+{
+	public double saldo;
+	public string TipoSaldo;
+
+	public Cuenta(double sald, string Tsaldo)
+	{
+		this.saldo = sald;
+		this.TipoSaldo = Tsaldo;
+	}
+	public void RetirarDinero()
+	{
+		double nuevoSaldo;
+		double RetirarSaldo;
+		Console.WriteLine("- Cantidad de Dinero a Retirar: ");
+		RetirarSaldo = int.Parse(Console.ReadLine());
+		if(saldo <= 0){
+			Console.WriteLine("No Dispone de Saldo");
+		}
+		else if(saldo > 0)
+		{
+			nuevoSaldo = saldo - RetirarSaldo;
+			saldo = nuevoSaldo;
+			Console.WriteLine("Tu Saldo es: S/"+saldo);
+		}
+	}
+	public void DepositarDinero()
+	{
+		double nuevoSaldo;
+		double DepositarSaldo;
+		Console.WriteLine("Monto a Depositar");
+		DepositarSaldo = int.Parse(Console.ReadLine());
+		if(DepositarSaldo <= 0)
+		{
+			Console.WriteLine("Usted No Puede Depositar un Saldo de S/" + DepositarSaldo);
+		}
+		else if(DepositarSaldo > 0)
+		{
+			nuevoSaldo = saldo + DepositarSaldo;
+			saldo = nuevoSaldo;
+			Console.WriteLine("Tu Saldo es: S/"+saldo);
+		}
+	}
+	public void ConsultarSaldo()
+	{
+		Console.WriteLine("Tu Saldo Total es de : S/"+saldo);
+	}
+}
