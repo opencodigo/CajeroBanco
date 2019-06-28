@@ -1,0 +1,131 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace ProyectoCajero
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            /* Cajero[] caja = new Cajero[10];
+             caja[0]  = new Cajero("2", "Mibanco");
+             //caja[0] = cj;
+             for(int i =0;i<caja.Length;i++)
+             {
+                 Console.WriteLine(caja[i].IdCajero);
+             }*/
+            Cliente cli = new Cliente();
+            //cli.InsertarDatos();
+            cli.LeerDatosBD();
+            Console.ReadKey();
+        }
+        
+    }
+}
+/*public class Cajero
+{
+    public string IdCajero;
+    public string NombreCajero;
+    public string[] Cliente;
+  
+    public Cajero(string idcaja, string nombcaja)
+    {
+        this.IdCajero = idcaja;
+        this.NombreCajero = nombcaja;
+    }
+}*/
+public class Cliente
+{
+    public string Dni;
+    public string Nombre;
+    public string Apellido;
+    public string password;
+    public int edad;
+    public Cliente()
+    {
+
+    }
+    public void InsertarDatos()
+    {
+        int Clientes;
+        Console.WriteLine("Nro de Clientes Ingresados");
+        Clientes = int.Parse(Console.ReadLine());
+        Cliente[] client = new Cliente[Clientes];
+        for (int i=0;i<client.Length;i++)
+        {
+            client[i] = new Cliente();
+            Console.WriteLine("Ingrese Dni:");
+            client[i].Dni = Console.ReadLine();
+            Console.WriteLine("Ingrese Nombre:");
+            client[i].Nombre = Console.ReadLine();
+            Console.WriteLine("Ingrese Apellido:");
+            client[i].Apellido = Console.ReadLine();
+        }
+        for (int j =0;j<client.Length;j++)
+        {
+            Console.WriteLine("Dni : "+client[j].Dni+" || Nombre : "+client[j].Nombre+" || Apellido : "+client[j].Apellido);
+        }
+    }
+    public void cambarContrasenia()
+    {
+        InsertarDatos();
+    }
+    public void LeerDatosBD()
+    {
+        string cadena;
+        string []lines =System.IO.File.ReadAllLines(@"E:\BD.txt");
+        Console.WriteLine("Contenido del archivo = ");
+        //lines = cadena;
+        
+        char[] separador = { ',' };
+       
+        for (int i=0;i<lines.Length;i++)
+        {
+           
+           Console.WriteLine("\t" + lines[1]);
+        }
+        Console.WriteLine("Presione cualquier tecla para salir.");
+       
+        foreach(var t in lines)
+        {
+            Console.WriteLine("\t" + t);
+
+        }
+        
+        
+        /*StreamReader lectura;
+        bool encontrar;
+        encontrar = false;
+        string cadena;
+        char[] separador = { ',' };
+        Cliente[] clien = new Cliente[6];
+        
+        try
+        {
+            lectura = File.OpenText(@"E:\BD.txt");
+            cadena = lectura.ReadLine();
+            foreach(string cliente in lectura)
+            {
+
+            }
+        }
+        catch (FileNotFoundException fe)
+        {
+            Console.WriteLine("ERROR " + fe.Message);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("ERROR " + e.Message);
+        }*/
+    }
+}
+public class Cuenta
+{
+    public string nroCuenta;
+    public float Monto;
+    public char Moneda;
+}
