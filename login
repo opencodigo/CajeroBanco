@@ -27,9 +27,9 @@ class Cajero{
 
 	
 	public void Logion(){
-		Console.WriteLine("==========================");
-		Console.WriteLine("====BANCO-BCP====");
-		Console.WriteLine("==========================");
+		Console.WriteLine("|============================|");
+		Console.WriteLine("|=========BANCO-BCP==========|");
+		Console.WriteLine("|============================|");
 		Console.WriteLine("INGRESAR NOMBRE");
 		nombre=Console.ReadLine();
 		Console.WriteLine("INGRESAR DNI");
@@ -46,6 +46,14 @@ class Cajero{
 				q=false;
 				}
 			}
+			Console.WriteLine("|============================|");
+			Console.WriteLine("|======INGRESE DE NUEVO======|");
+			Console.WriteLine("|=========POR FAVOR==========|");
+			Console.WriteLine("|============================|");
+
+
+
+				
 			Logion();
 		}
 	}
@@ -88,4 +96,9 @@ class Cajero{
 		
 	}
 	}
+	
+	
+
+
+
 	
