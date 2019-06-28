@@ -1,0 +1,27 @@
+using System;
+using System.IO;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string fichero = @"D:\Users\mañana\source\repos\Cajero\DOCU\bd.txt";
+            string contenido = String.Empty;
+
+            if (File.Exists(fichero))
+            {
+                contenido = File.ReadAllText(fichero);
+                string[] lineas = contenido.Split(Environment.NewLine);
+                foreach (string linea in lineas) 
+                {
+                    
+                    String[] array = linea.Split(',');
+                    Console.WriteLine("nombres: "+ array[1] + " DNI " + array[0]);  
+                }
+
+            }
+        }
+    }
+}
