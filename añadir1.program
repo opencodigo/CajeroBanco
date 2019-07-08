@@ -1,0 +1,62 @@
+using System;
+
+namespace cajeroV2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Ingresse su numero de DNI: ");
+            int opciones;
+            string dni = Console.ReadLine();
+            cliente usuario = new  cliente();
+            bool rpta = usuario.Verificador(dni);
+            //Console.WriteLine(rpta);
+            if (rpta == true)
+            {
+                Console.WriteLine("=======BIENVENIDO======");
+                Console.WriteLine("========Banco ABC=========");
+                Console.WriteLine("==========================");
+                Console.WriteLine("1. Consultar saldo");
+                Console.WriteLine("2. Depositar");
+                Console.WriteLine("3. Retirar");
+                Console.WriteLine("4. Terminar");
+
+                Console.WriteLine("Escoja una opcion");
+                opciones = int.Parse(Console.ReadLine());
+
+
+                do
+                {
+                    if (opciones == 1)
+                    {
+                        Console.WriteLine("Su saldo es de...");
+                        break;
+                    }
+                    if (opciones == 2)
+                    {
+                        Console.WriteLine("A quien quiere depositar");
+                        break;
+                    }
+                    if (opciones == 3)
+                    {
+                        Console.WriteLine("Cuanto dinero quiere retirar?");
+                        break;
+                    }
+                    if (opciones == 4)
+                    {
+                        Console.WriteLine("Terminar programa");
+
+
+                    }
+                } while (opciones != 4);
+
+            }
+
+            else
+            {
+                Console.WriteLine("No se ah detectado un usuario con su numero de DNI, Hasta luego");
+            }
+        }
+    }
+}
