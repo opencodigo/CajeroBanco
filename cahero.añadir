@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace cajeroV2
+{
+    class cliente
+    {
+        public string dni;
+        public string nombres;
+        public string apellidos;
+        public string cuenta;
+        public double monto;
+        public char moneda;
+        bool respuesta;
+
+
+
+
+        public bool Verificador(string algunDni)
+        {
+            string line;
+            List<string> lista_de_strings = new List<string>();
+            // Read the file and display it line by line.  
+            System.IO.StreamReader file =
+                new System.IO.StreamReader(@"D:\PROGRAMACION\proyectos en C#\BD-cajeroPatrick\bd.txt");
+            while ((line = file.ReadLine()) != null)
+            {
+                lista_de_strings.Add(line);
+            }
+            file.Close();
+            //---------------------------------------------------------------------------------------------------//
+            
+            int numClientes = lista_de_strings.Count;
+            for (int i = 1; i < numClientes; i++)
+            {
+                List<string> lista_de_objetos = new List<string>();
+                string All_info_Cliente;
+                string[] muestra;
+                All_info_Cliente = lista_de_strings[i];
+                muestra = All_info_Cliente.Split(',');
+                if (muestra[0] == algunDni)
+                {
+                    respuesta = true;
+                    //Console.WriteLine("Esta en la linea: {0}", i);
+                    break;
+                }
+                else
+                {
+                    respuesta = false;
+                }
+
+            }
+
+            return respuesta;
+
+
+        }
+
+
+
+
+
+
+
+    }
+}
